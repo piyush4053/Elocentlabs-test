@@ -1,0 +1,16 @@
+from collections import Counter
+
+def leastInterval(tasks, n):
+    freq = Counter(tasks)
+
+    max_freq = max(freq.values())              
+    count_max = list(freq.values()).count(max_freq)
+
+    # formula based scheduling
+    time = (max_freq - 1) * (n + 1) + count_max
+
+    return max(len(tasks), time)
+tasks = ["A", "A", "A", "B", "B", "B"]
+n = 2
+
+print(leastInterval(tasks, n)) 
